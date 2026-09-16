@@ -1,6 +1,6 @@
 # Bugless Fit Project Memory
 
-Last verified: 2026-09-16
+Last verified: 2026-09-17
 
 This directory is the durable implementation record for the Bugless Fit Django
 store. The 21 standalone files under `frontend/` remain the visual and
@@ -36,6 +36,8 @@ are derived implementations.
   environments.
 - [Security and monitoring](security/README.md): Phase 6 threat model, headers,
   privacy-safe logs, health diagnostics, evidence, and residual limits.
+- [Local setup and handoff](../LOCAL_SETUP.md): source-only transfer, fresh
+  SQLite setup, verification, and loopback-only development startup.
 - [Decisions](decisions/README.md): accepted architecture and product choices.
 - [Progress](progress/README.md): phase gates, completed work, and next work.
 
@@ -61,8 +63,9 @@ are derived implementations.
   catalog is seed/demo data until separately approved for production.
 - The pre-custom-user SQLite database is recoverable at
   `db.pre-custom-user.20260913.sqlite3`.
-- The repository is not a Git worktree. Preserve unrelated files and use the
-  backup/migration path rather than destructive resets.
+- The repository is now a Git worktree on `main` with an `origin` remote. Local
+  environments, secrets, SQLite files, media, and runtime output remain ignored
+  and must not be included in a handoff.
 
 ## Implemented foundation
 

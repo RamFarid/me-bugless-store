@@ -1,6 +1,6 @@
 # Implementation Progress
 
-Last updated: 2026-09-16 (Phase 6 and simplified dashboard complete)
+Last updated: 2026-09-17 (local handoff guide complete)
 
 ## Delivery protocol
 
@@ -38,6 +38,8 @@ view-only, orders are immutable with service-backed status actions only, and
 products/images/variants have role-scoped CRUD. Deployment and production-
 readiness work remain explicitly outside the roadmap.
 
+`[x] Follow-up - Safe local handoff and setup guide`
+
 ## Roadmap
 
 | Phase | Category | Intended outcome | Status |
@@ -65,7 +67,8 @@ memory and evidence to implement safely.
 - [x] Recorded SHA-256 integrity and the original 3-test health baseline.
 - [x] Recorded local counts and confirmed no user/order/contact/variant data.
 - [x] Established this phase-gated roadmap and domain documentation.
-- [x] Recorded that this directory is not a Git worktree.
+- [x] Recorded that the original Phase 0 directory was not yet a Git worktree;
+  the current repository is now versioned and connected to `origin`.
 
 ### Exit evidence
 
@@ -569,10 +572,26 @@ evidence and unproved limits. Completion does not imply deployability.
 - [x] Add focused admin tests and desktop/mobile browser journeys for read-only
   contacts, status-only orders, and product CRUD.
 
+## Follow-up - Safe local handoff and setup guide
+
+### Objective and completed work
+
+- [x] Add a top-level `LOCAL_SETUP.md` for transferring committed source
+  without local secrets, databases, uploads, environments, or runtime output.
+- [x] Provide a Windows PowerShell setup path using an isolated Python 3.13
+  virtual environment and a fresh SQLite database.
+- [x] Document migration, catalog seed, staff-role setup, Django checks, test
+  expectations, optional administrator creation, and loopback-only startup.
+- [x] Add archive hash verification, per-step acceptance checks, optional
+  Playwright instructions, local safety rules, and focused troubleshooting.
+- [x] Keep deployment and production-readiness claims outside the guide's
+  local-learning scope.
+
 ## Known risks and constraints
 
-- This is not a Git worktree, so filesystem backup and narrowly scoped edits are
-  important.
+- The repository is now a Git worktree, but local databases, secrets, media,
+  environments, and runtime output are intentionally ignored. Handoffs must use
+  committed source rather than copying the whole working directory.
 - The pre-custom-user database is a deliberate backup; do not overwrite it.
 - The 21 SOT files are immutable.
 - The current catalog is seed/demo data and remote-image dependent.
@@ -613,6 +632,8 @@ evidence and unproved limits. Completion does not imply deployability.
 | 2026-09-16 | Simplified admin dashboard | Product CRUD, immutable/status-only orders, read-only contacts, and exact permissions passed focused and browser coverage. |
 | 2026-09-16 | Dashboard staff-role reconciliation | Active groups updated to 21/6/5/28 exact permissions. |
 | 2026-09-16 | Final current gates | `check`, migration freshness, static dry-run, six JS parses, and all 21 SOT hashes passed. |
+| 2026-09-17 | Safe local handoff documentation | Added root setup/handoff guide with source-only transfer, fresh SQLite initialization, verification, and loopback-only runtime checks. |
+| 2026-09-17 | Handoff documentation gates | `check`, migration freshness, diff whitespace validation, and all 118 tests passed with the four expected PostgreSQL-only skips. |
 
 ## Next concrete action
 
